@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/static/norm.css">
+    <link rel="stylesheet" href="/static/chat.css">
+    <title>IEEECA - Chat</title>
+</head>
+<body>
+    <nav class="nav">
+        <span class="nav__logo" href="">IEEECA</span>
+        <ul class="nav__content">
+            <a class="nav__content__link" href="/chat">
+                <span class="material-symbols-rounded">forum</span>
+                <span class="nav__content__link__text">Sala de Chat</span>
+            </a>
+            <a class="nav__content__link" href="/protocol">
+                <span class="material-symbols-rounded">gavel</span>
+                <span class="nav__content__link__text">Protocolo</span>
+            </a>
+        </ul>
+        <a class="nav__link" target="_blank" href="https://docs.google.com/document/d/1f2XN79krftQ4e2Ip0nVGSekeng1jC7hwfrBMjOJG8Yg/edit?usp=sharing">RFC EEL878</a>
+    </nav>
+
+    <div class="chatbox">
+        <hr class="chatbox__hr">
+        <div class="chatbox__features__content">
+            <span class="chatbox__features__content__title">Bem vindo ao chat do IEEECA</span>
+            <div class="chatbox__features__content__div">
+                <span class="material-symbols-rounded">group</span>
+                <span class="chatbox__features__content__div__span">Seja respeitoso no chat.</span>
+            </div>
+            <div class="chatbox__features__content__div">
+                <span class="material-symbols-rounded">text_rotation_none</span>
+                <span class="chatbox__features__content__div__span">Respeite o limite de 64 caracteres.</span>
+            </div>
+            <div class="chatbox__features__content__div">
+                <span class="material-symbols-rounded">logout</span>
+                <span class="chatbox__features__content__div__span">Digite :D para encerrar a comunicação.</span>
+            </div>
+        </div>
+        <form class="chatbox__panel" action="/send" method="post">
+            <input class="chatbox__panel__messagebox" type="text" name="message" placeholder="Digite sua mensagem">
+            <input class="chatbox__panel__submit" type="submit" placeholder="Enviar">
+        </form>
+    </div>
+</body>
+</html>
