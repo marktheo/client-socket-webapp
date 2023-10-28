@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&display=swap');
+
+*{
+  border: 0;
+  font-size: 1.05em;
+	font-family: 'Bai Jamjuree', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+textarea:focus, input:focus, select:focus {
+  outline: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar{
+  background-color: rgba(225, 225, 225, 100);
+  width: 13px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-image:  linear-gradient(135deg, #2D3047, #93B7BE);
+}
