@@ -19,19 +19,18 @@ def go(string):
     client_sckt.send(msg)
     print(client_sckt.recv(2048).decode('utf-8'))
 
-@app.route("/chat")
+@app.route("/")
 def chat():
     return render_template("chat.html")
 
 @app.route("/send", methods = ["POST"])
 def send():
     message = request.form["message"]
+    go(message)
     if message == ":D":
         client_sckt.close()
         global own_pid
         os.kill(own_pid, 9)
-    else:
-        go(message)
     return chat()
 
 app.run()
