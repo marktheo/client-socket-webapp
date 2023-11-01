@@ -83,13 +83,21 @@ body{
 }
 
 .chatbox__features__content__div{
-
     display: flex;
     flex-direction: row;
     font-size: 1.2em;
     font-weight: 500;
     gap: 16px;
     justify-content: center;
+}
+
+.chatbox__features__content__div__span{
+    background-clip: text;
+    background-image: linear-gradient(135deg, #2D3047, #93B7BE);
+
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .chatbox{  
