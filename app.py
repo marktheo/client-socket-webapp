@@ -1,12 +1,13 @@
 from flask import Flask, request, render_template
 import socket as sckt
+import threading
 import os
 
 #Flask Instance - Init
 app = Flask(__name__)
 own_pid = os.getpid()
 
-server_addr = ('127.0.0.101', 18000)
+server_addr = ('', 18000)
 
 client_sckt = sckt.socket(sckt.AF_INET, sckt.SOCK_STREAM)
 client_sckt.connect(server_addr)
@@ -17,13 +18,19 @@ def go(string):
     msg_len += b' ' * (64 - len(msg_len))
     client_sckt.send(msg_len)
     client_sckt.send(msg)
-    print(client_sckt.recv(2048).decode('utf-8'))
+
+def listen():
+    while True:
+        string = client_sckt.recv(2048).decode('utf-8')
+        if not string:
+            break
+        print("\n" + string)
 
 @app.route("/")
 def chat():
     return render_template("chat.html")
 
-@app.route("/send", methods = ["POST"])
+@app.route("/send", methods=["POST"])
 def send():
     message = request.form["message"]
     go(message)
@@ -33,4 +40,8 @@ def send():
         os.kill(own_pid, 9)
     return chat()
 
-app.run()
+if __name__ == "__main__":
+    server = threading.Thread(target=listen)
+    server.daemon = True
+    server.start()
+    app.run()
